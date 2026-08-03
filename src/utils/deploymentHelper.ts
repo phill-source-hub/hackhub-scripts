@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 /**
  * Deployment Helper
  * Prepares TypeScript scripts for HackHub
@@ -22,9 +24,36 @@ export class DeploymentHelper {
   private deployDir = "./deploy";
 
   constructor() {
-    if (!fs.existsSync(this.deployDir)) {
+    if (fs.existsSync(this.deployDir)) {
+      // Clear old deploy folder
+      const files = fs.readdirSync(this.deployDir);
+      files.forEach(file => {
+        const filePath = path.join(this.deployDir, file);
+        const stat = fs.statSync(filePath);
+        if (stat.isDirectory()) {
+          // Simple directory delete
+          this.deleteDir(filePath);
+        } else {
+          fs.unlinkSync(filePath);
+        }
+      });
+    } else {
       fs.mkdirSync(this.deployDir, { recursive: true });
     }
+  }
+
+  private deleteDir(dir: string): void {
+    const files = fs.readdirSync(dir);
+    files.forEach(file => {
+      const filePath = path.join(dir, file);
+      const stat = fs.statSync(filePath);
+      if (stat.isDirectory()) {
+        this.deleteDir(filePath);
+      } else {
+        fs.unlinkSync(filePath);
+      }
+    });
+    fs.rmdirSync(dir);
   }
 
   /**

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 /**
  * HackHub Scripts Entry Point
  * 

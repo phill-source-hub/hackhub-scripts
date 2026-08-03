@@ -16,12 +16,28 @@
     "node": true,
     "es2020": true
   },
+  "globals": {
+    "println": "readonly",
+    "sleep": "readonly",
+    "alert": "readonly"
+  },
   "rules": {
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-vars": "error",
-    "no-console": "off",
+    "no-console": "warn",
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "no-restricted-globals": [
+      "warn",
+      {
+        "name": "setTimeout",
+        "message": "setTimeout not allowed in HackHub sandbox. Use synchronous logic instead."
+      },
+      {
+        "name": "setInterval",
+        "message": "setInterval not allowed in HackHub sandbox. Use synchronous logic instead."
+      }
+    ]
   }
 }

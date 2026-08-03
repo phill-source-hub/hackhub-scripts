@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 /**
  * Claude Helper
  * Integrates with Claude API for development assistance

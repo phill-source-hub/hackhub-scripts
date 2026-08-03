@@ -1,6 +1,6 @@
 # HackHub Script Deployment Guide
 
-Generated: 2026-08-03T20:37:54.410Z
+Generated: 2026-08-03T21:19:51.057Z
 
 ## Pre-Deployment Checklist
 - [x] Linting passed (npm run lint)
@@ -43,6 +43,7 @@ If something breaks:
 ## File Manifest
 
 - deploy\tools\networkScanner.ts
+- deploy\tools\sandboxTest.ts
 
 ## Notes
 

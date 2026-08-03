@@ -12,7 +12,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "dev": "npm run build && npm run watch",
-    "deploy": "npm run lint && npm run test && npm run build && echo 'Ready for game deployment'",
+    "deploy": "npm run lint && npm run test && npm run build && npx ts-node src/utils/deploymentHelper.ts",
     "clean": "rm -rf dist coverage"
   },
   "keywords": [
